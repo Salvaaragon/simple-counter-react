@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// hooks
+import { useCounter } from './hooks/useCounter';
 
-function App() {
+const App = () => {
+  const { counter, increment, decrement } = useCounter();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h2>Counter: {counter}</h2>
+      <div>
+        <button onClick={() => increment()}>+1</button>
+        <span> | </span>
+        <button onClick={() => decrement()}>-1</button>
+      </div>
+      <div>
+        <button onClick={() => increment(10)}>+10</button>
+        <span> | </span>
+        <button onClick={() => decrement(10)}>-10</button>
+      </div>
+      <div>
+        <button onClick={() => increment(100)}>+100</button>
+        <span> | </span>
+        <button onClick={() => decrement(100)}>-100</button>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
